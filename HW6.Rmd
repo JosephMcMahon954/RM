@@ -1,0 +1,241 @@
+---
+title: "Untitled"
+output: html_document
+date: "2025-10-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Practice Exam – Version C
+
+**Question 1**\
+The average number of novels read by a sample of book club members is an example of:
+
+-   [Statistic]{.underline}
+
+-   Parameter
+
+-   Neither
+
+------------------------------------------------------------------------
+
+**Question 2**\
+The number of cars owned by households in a neighborhood is an example of:
+
+-   [Quantitative, Discrete Data]{.underline}
+
+-   Quantitative, Continuous Data
+
+-   Qualitative Data
+
+-   Can't tell
+
+------------------------------------------------------------------------
+
+**Question 3**\
+You are given a dataset consisting of six recorded heart rates (beats per minute). Find the sample standard deviation (round to two decimal places).
+
+Dataset: Heart Rates\
+68, 72, 75, 80, 83, 88
+
+```{r}
+avg = sum(68, 72, 75, 80, 83, 88) / 6
+sqrt(
+  (
+    (68 - avg)^2 + (72 - avg)^2 + (75 - avg)^2 + 
+    (80 - avg)^2 + (83 - avg)^2 + (88 - avg)^2
+  ) / 5
+) 
+avg
+
+```
+
+```{r}
+sd(c(68, 72, 75, 80, 83, 88)) # to verify
+```
+
+$\sigma = 7.39$
+
+**Question 4 – Classifying Skewness**\
+You are given a dataset of weekly screen times (in hours). Determine whether it is right skewed, left skewed, or symmetric.
+
+| Person | Screen Time |
+|--------|-------------|
+| 1      | 8           |
+| 2      | 9           |
+| 3      | 10          |
+| 4      | 11          |
+| 5      | 12          |
+| 6      | 13          |
+| 7      | 12          |
+| 8      | 25          |
+
+eyeballing it it looks right skewed. The median is 11.5 and the mean is likely higher than that.
+
+```{r}
+(8 + 9 + 10 + 11 + 12 + 13 + 12 + 25) / 8
+```
+
+the mean is 12.5. The dataset is right skewed
+
+------------------------------------------------------------------------
+
+**Question 5**\
+In a population of sprinters, the average time to run 100m is 12.2 seconds with a standard deviation of 0.5 seconds. If a sprinter runs it in 13.0 seconds, what is their z-score?'
+
+```{r}
+(13 - 12.2) / 0.5
+```
+
+The z-score is 1.6
+
+------------------------------------------------------------------------
+
+**Question 6**\
+In a study group, the average number of practice quizzes completed is 15 with a standard deviation of 3. If Maria completes 23 quizzes, is her number considered unusual?
+
+```{r}
+(23 - 15) / 3
+```
+
+Yes because it is 2.67 standard deviations above the mean.
+
+------------------------------------------------------------------------
+
+**Question 7**\
+In a school, 30% of students are enrolled in art, 55% are enrolled in music, and 18% are enrolled in both. What is the probability that a randomly selected student is enrolled in art or music?
+
+0.3 + 0.55 - 0.18 = 0.67
+
+------------------------------------------------------------------------
+
+**Question 8**\
+A health program studied whether people improved balance after tai chi practice:
+
+|                  | Practices Tai Chi | Doesn’t Practice |
+|------------------|-------------------|------------------|
+| Improved Balance | 85                | 35               |
+| No Improvement   | 55                | 65               |
+
+What is the probability that a randomly selected person improved balance and practices tai chi?
+
+------------------------------------------------------------------------
+
+**Question 9**\
+A study on diet and concentration reported:
+
+|                | Eats Breakfast Daily | Skips Breakfast |
+|----------------|----------------------|-----------------|
+| Good Focus     | 95                   | 40              |
+| No Improvement | 105                  | 90              |
+
+What is the probability that a randomly selected person did **not** show improvement in focus?
+
+------------------------------------------------------------------------
+
+**Question 10**\
+From the table below:
+
+|               | Drinks Soda | Doesn’t Drink Soda |
+|---------------|-------------|--------------------|
+| Healthy Teeth | 70          | 100                |
+| Cavities      | 90          | 140                |
+
+What is the probability that a randomly selected person doesn’t drink soda given they have healthy teeth?
+
+------------------------------------------------------------------------
+
+**Question 11**\
+In a plant, Machine P has a failure probability of 0.03, and Machine Q has a failure probability of 0.07. What is the probability that both machines fail on the same day if they work independently?
+
+------------------------------------------------------------------------
+
+**Question 12**\
+A survey of 240 people on relaxation activities produced the following table:
+
+| Activity    | Alone | With Others |
+|-------------|-------|-------------|
+| Reading     | 40    | 30          |
+| Watching TV | 55    | 65          |
+| Cooking     | 25    | 25          |
+
+What is the probability that a randomly selected person prefers reading?
+
+------------------------------------------------------------------------
+
+**Question 13**\
+Using the same table: What is the probability that a randomly selected person prefers cooking alone?
+
+------------------------------------------------------------------------
+
+**Question 14**\
+Using the same table: What is the probability that a randomly selected person prefers relaxing alone given they cook?
+
+------------------------------------------------------------------------
+
+**Question 15**\
+Using the same table: What is the probability that a randomly selected person relaxes with others or watches TV?
+
+------------------------------------------------------------------------
+
+**Question 16**\
+In an office, the probability that an employee drinks coffee is 0.60 and the probability they drink tea is 0.25. Assuming independence, what is the probability that an employee drinks both coffee and tea?
+
+------------------------------------------------------------------------
+
+**Question 17**\
+A survey asked 100 people how many hours per week they spend exercising:
+
+| Hours (Xi) | Frequency (fi) |
+|------------|----------------|
+| 1          | 10             |
+| 2          | 15             |
+| 3          | 25             |
+| 4          | 30             |
+| 5          | 20             |
+
+Find the mean number of hours spent exercising. (Round to two decimal places)
+
+------------------------------------------------------------------------
+
+**Question 18**\
+Using the same table, find the median number of hours spent exercising.
+
+------------------------------------------------------------------------
+
+**Question 19 – Engineering Quality Control**
+
+A company produces aircraft valves using three different production lines.
+
+-   Line 1 produces half of all the valves, and about 1.2% of its valves are defective.
+
+-   Line 2 produces 30% of the valves, and about 2.6% of its valves are defective.
+
+-   Line 3 produces 20% of the valves, and about 5% of its valves are defective.
+
+**(a)** If one valve is selected at random from the entire day’s production, what is the probability that it is defective?
+
+```{r}
+0.5 * 0.012 + 0.3 * 0.026 + 0.2 * 0.05
+```
+
+**(b)** If a valve is found to be defective, what is the probability that it came from Line 3?
+
+```{r}
+(0.2 * 0.05) / (0.5 * 0.012 + 0.3 * 0.026 + 0.2 * 0.05)
+```
+
+```{r}
+(0.5 * 0.012) / (0.5 * 0.012 + 0.3 * 0.026 + 0.2 * 0.05)
+```
+
+```{r}
+(0.3 * 0.026) / (0.5 * 0.012 + 0.3 * 0.026 + 0.2 * 0.05)
+```
+
+```{r}
+getwd()
+```
+
