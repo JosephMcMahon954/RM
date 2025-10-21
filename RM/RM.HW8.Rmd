@@ -1,0 +1,85 @@
+---
+title: "RM HW 8"
+output: pdf_document
+date: "2025-10-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+```{r}
+data <- read_tsv("Inter Miami Player	Fouls Suffered (Per Game)
+L. Messi	1.37
+L. Suárez	1.37
+L. Campana	0.61
+R. Taylor	0.33
+J. Alba	0.43
+B. Cremaschi	0.64
+M. Rojas	0.071
+D. Gómez	0.95
+I. Fray	1.5
+L. Frugis Afonso	0.73
+F. Redondo	0.75
+S. Busquets	1.8
+J. Gressel	0.44
+S. Kryvtsov	0.61
+D. Ruiz	0.71
+N. Allen	0.5
+T. Avilés	0.15
+S. Borgelin	1
+Y. Bright	1.13
+D. Callender	0.19
+N. Freire	0.2
+D. Martínez	0.5
+F. Negri	0.45
+R. Sailor	0.11
+L. Sunderland	0
+M. Weigandt	1.09
+ ")
+```
+
+```{r}
+data %>% head()
+```
+
+```{r}
+fpg <- data[2] # Fouls Suffered (Per Game)
+avg <- sum(fpg) / nrow(fpg)
+avg # 0.678
+```
+
+```{r}
+s <- sd(unlist(data[2])) 
+s # 0.478
+
+```
+
+
+Z-score_i = (x_i - x-hat) / s
+
+```{r}
+messi <- (1.37 - 0.678) / s 
+messi # 1.45
+```
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
