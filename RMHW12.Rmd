@@ -1,0 +1,99 @@
+---
+title: "RMHW12"
+author: "Joseph"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'hide)
+library(tidyverse)
+```
+
+# **Pre-Class Assignment 12 - Time to Relax! Fall 25**
+
+This assignment is associated with Chapters 11 and 12 (Salkind). 
+
+**Always save a copy of your responses to the individual assignments before you submit them (either by taking a picture of your answers or by copying and pasting your answers into a word document). You will need them for you discussion assignment and you will not always have access to your responses after you submit them.**
+
+**Instructions:** Research suggests that undergoing a digital detox (also sometimes called a social media detox), in which you refrain from using your phone to scroll through social media for a period of time, may help to reduce depression symptoms (Ramadhan et al., 2024). A professor wants to study this further. She measures her students ratings of generalized anxiety (on a scale from 1-10) before and after a 2 week digital detox (in which they refrain from engaging or scrolling on social media). The data are below. She expects that anxiety will decrease at the end of the 2 weeks. 
+
+|                               |                              |
+|:-----------------------------:|:----------------------------:|
+| **Before Social Media Detox** | **After Social Media Detox** |
+|               7               |              5               |
+|               6               |              5               |
+|               5               |              4               |
+|               5               |              5               |
+|               9               |              7               |
+|              10               |              8               |
+|              10               |              9               |
+|               9               |              7               |
+|               7               |              6               |
+|               4               |              4               |
+|               9               |              7               |
+|               6               |              5               |
+|               6               |              4               |
+|               5               |              4               |
+|               6               |              3               |
+|               5               |              4               |
+
+```{r}
+data <- read_tsv("Before Social Media Detox	After Social Media Detox
+7	5
+6	5
+5	4
+5	5
+9	7
+10	8
+10	9
+9	7
+7	6
+4	4
+9	7
+6	5
+6	4
+5	4
+6	3
+5	4"
+)
+
+```
+
+## 1. What's the null hypothesis for this research question?
+
+Depression symptom scores will stay the same or increase after a social media detox,
+
+$H_0 : \mu_{posttest} \ge \mu_{pretest}$
+
+## 2. What's the alternative hypothesis for this research question?
+
+Depression symptom scores will decrease after a social media detox,
+
+$H_a : \mu_{posttest} < \mu_{pretest}$
+
+## 3. The next step is to compute the test statistic. What is the t-statistic value (make sure you're using the t-test formula for the dependent samples t-test). Round your answer to two decimal places.
+
+```{r}
+sum_D = sum(data$`After Social Media Detox` - 
+              data$`Before Social Media Detox`) # -22
+n = nrow(data) # 16
+sum_D2 <- sum((data$`After Social Media Detox` - 
+                data$`Before Social Media Detox`)^2) # 40
+t = sum_D / sqrt(
+  (n*sum_D2 - sum_D^2) / (n-1)
+)
+t # -6.82191
+t.test(data$`After Social Media Detox`, 
+       data$`Before Social Media Detox`, paired = TRUE) # -6.82191
+```
+
+-6.82
+
+## 5. What are the degrees of freedom?
+
+16 - 1 = 15
+
+## 6. What is the critical value?
+
+t(15) = 1.753
